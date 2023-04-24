@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+{% block content %}
+{% load static %}
+<br>
+<div class='container text-center'>
+	<img src="{% static 'logo.png' %}"><br><br><br>
+	<div class="alert alert-primary" style="background-color:#e8ffd1;"><font color='#2c691f;'><h1>Easy Crop</h1></font></div>
+		<h4><font size=29><i>"If agriculture is not a priority, then food cannot be a priority, health cannot be a priority."</i></font></h4>
+		<p align="right"><b><i><font size=5>~ Dr. Vinay Kumar Singh, Art of Living</font></i></b></p>
+		<br>
+	<font face="Salma Pro Medium-Narrow"><h4>Easy Crop is a webapp made specifically to make farmers' lives easier. The world is directly based on agriculture. The first human societies were set up on fertile lands so that agriculture could be feasible. Therefore, if we cannot protect agriculture as a whole from perishing due to the modern day problems, which seem to be increasing every second, we should start preparing ourselves for new and unexpected environmental and human issues.</h4>
+<br>
+	<h4>We, the creators of easycrop, have recognised this need and want to work towards revolutionising agriculture by providing cost-free services to the people directly responsible for development and prevention of environmental and social issues, namely, farmers. We intend to add a lot more cool features to the website within a few months, so STAY TIGHT!<h4>
+		<br>
+	<h4>Presently, there are two sections in this website:</h4><br>
+	<h4>The Crop Predictor - It can predict the best crop for you and your land. It can give immaculate predictions on what crop best suits the land, based on the data provided by you to our model.</h4>
+	<h4>Advertisements - It can help farmers create advertisements for themselves so that people can reach them out and buy it on the farmer's price. This  avoids mediators, who are often responsible for farmer's low earnings.</h4></font>
+	<br>
+	{% if user.is_authenticated %}
+	<a href="{% url 'predictcrop' %}" target="_PARENT"><button class='btn btn-success'>Predict Crop</button></a><br><br>
+	<a href="{% url 'create' %}" target="_PARENT"><button class='btn btn-primary'>Create an Ad</button></a>
+	{% else %}
+		<a href="{% url 'signup' %}" target="_PARENT"><button class='btn btn-primary'>Sign Up</button></a>
+		<br>
+	{% endif %}
+<br>
+<h4>Try the predictor using the iFrame below or click <a href="{% url 'predictionintro' %}">here</a>.</h4>
+<iframe src="{% url 'predictionintro' %}" width="75%" height=1000></iframe>
+<br>
+
+
+
+</div>
+{% endblock %}

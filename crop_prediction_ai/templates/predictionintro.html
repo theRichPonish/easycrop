@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+{% block content %}
+<br>
+<div class='container text-center'>
+  <div class="alert alert-primary" style="background-color:#e8ffd1;"><font color='#2c691f;'><h1>The Crop Predictor</h1></font></div>
+	<h2><font face="Salma Pro Medium-Narrow">Our goal to help farmers can only be achieved if farmers know more about their land and the crop that can be grown the most productively on it. This section of the website can give you immaculate predictions on what crop best suits your farming land. All you need to know to use it is the Nitrogen, Phosphorus and Potassium composition of your soil(in ppm), along with the pH of your soil. These values can easily be found by visiting a local soil checkup center or using personal machinery. The temperature, humidity and rainfall of the area can be found accurately on the internet. These values may vary from season to season. Therefore, make sure you get the required data for the season in which you'll grow the crop. </font></h2>
+<br>
+  <a href="{% url 'predictcrop' %}" class='btn btn-primary'>Click here to proceed...</a>
+</div>
+{% endblock %}

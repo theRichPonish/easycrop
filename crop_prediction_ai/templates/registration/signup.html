@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% block content %}
+<br>
+<div class='container text-center'>
+<div class="alert alert-primary" style="background-color:#e8ffd1;"><font color='#2c691f;'><h1>Signup</h1></font></div>
+	<form method='POST'>
+		{% csrf_token %}
+		{% load widget_tweaks %}
+		{% if form.non_field_errors %}
+			<div class='alert alert-danger'>{{ form.non_field_errors }}</div>
+		{% endif %}
+		<span class="helptext">Username Is Required. 150 characters or fewer. Letters, digits and @/./+/-/_ only.</span>
+		<span class="helptext"><ul><li>Your password can’t be too similar to your other personal information.</li><li>Your password must contain at least 8 characters.</li><li>Your password can’t be a commonly used password.</li><li>Your password can’t be entirely numeric.</li></ul></span>
+		{% for field in form %}
+		{% if field.errors %}<div class='alert alert-danger'>{{ field.errors }}</div>{% endif %}
+			<div class='form-floating mb-3'>
+				{% render_field field placeholder='O' class='form-control' %}
+				{{ field.label_tag }}
+			</div>
+		{% endfor %}
+		<button class="btn btn-success" type="submit">Signup</button>
+	</form>
+</div>
+{% endblock %}
